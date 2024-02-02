@@ -19,6 +19,9 @@ android {
         versionName "2.2.0"
         signingConfig signingConfigs.SigningConfiguration
     }
+    buildFeatures {
+        buildConfig = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -44,7 +47,7 @@ android {
 
 repositories {
     maven {
-        url "https://s3.amazonaws.com/android.truex.com/tar/prod/maven"
+        url "https://s3.amazonaws.com/android.truex.com/tar/qa/maven"
     }
 }
 
@@ -72,7 +75,7 @@ dependencies {
     // True[x] Ad Renderer (TAR) Dependency
     // Note: to refer to a local version of the TAR project, comment out the com.truex dependency
     // and uncomment the project one below.
-    implementation 'com.truex:TruexAdRenderer-Android:2.7.1'
+    implementation 'com.truex:TruexAdRenderer-Android:2.8.2'
     //implementation project(':TruexAdRenderer')
 }
 

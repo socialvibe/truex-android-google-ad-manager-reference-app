@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 
 import com.truex.adrenderer.TruexAdEvent;
+import com.truex.adrenderer.TruexAdOptions;
 import com.truex.adrenderer.TruexAdRenderer;
 import com.truex.googlereferenceapp.player.PlaybackHandler;
 
@@ -38,7 +39,11 @@ public class TruexAdManager {
      * @param vastConfigUrl - url for accessing the trueX ad vast config JSON values.
      */
     public void startAd(ViewGroup viewGroup, String vastConfigUrl) {
-        truexAdRenderer.init(vastConfigUrl);
+        // Always allow remote debugging of ad web view for test and reference apps.
+        TruexAdOptions options = new TruexAdOptions();
+        options.enableWebViewDebugging = true;
+
+        truexAdRenderer.init(vastConfigUrl, options);
         truexAdRenderer.start(viewGroup);
     }
 
